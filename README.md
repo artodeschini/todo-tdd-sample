@@ -1,6 +1,12 @@
 # Todo TDD
 
-Um simples projeto utilizando node express e jest
+Um simples projeto utilizando node express e jest.
+Utilizando TDD a ideia é criar primeiros os testes, depois criar a funcionalidade, depois criar o teste de integracao da mesma
+
+## teste unitarios
+
+[unit test](./test/unit/todo.controller.test.js)
+[integration](./test/integration/todo.controller.int.test.js)
 
 ## requirements
 
