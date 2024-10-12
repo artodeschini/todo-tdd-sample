@@ -49,4 +49,10 @@ describe("TodoController.createTodo", () => {
         await TodoController.createTodo(req, res, next);
         expect(next).toBeCalledWith(errorMessage);
     });
+
+    describe("TodoController.getTodos", () => {
+        it("should have a getTodos function", () => {
+          expect(typeof TodoController.getTodos).toBe("function");
+        });
+    });
 });
