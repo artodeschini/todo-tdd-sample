@@ -1,0 +1,25 @@
+{
+  "name": "todo-tdd",
+  "version": "1.0.0",
+  "description": "A simples exemple to use tdd with jest and nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "keywords": [
+    "jest",
+    "tdd",
+    "express"
+  ],
+  "author": "Artur Todeschini Crestani",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.7.1",
+    "node-mocks-http": "^1.16.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
