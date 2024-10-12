@@ -1,3 +1,5 @@
+const TodoController = require("../../controllers/todo.controller");
+
 const TodoModel = require("../../model/todo.model");
 const httpMocks = require("node-mocks-http");
 const newTodo = require("../mock-data/new-todo.json");
@@ -9,13 +11,17 @@ let req, res, next;
 const todoId = "b76c4b71465d93bdce5b8598";
 
 beforeEach(() => {
-  req = httpMocks.createRequest();
-  res = httpMocks.createResponse();
-  next = jest.fn();
+    req = httpMocks.createRequest();
+    res = httpMocks.createResponse();
+    next = jest.fn();
 });
 
 describe("TodoController.createTodo", () => {
     beforeEach(() => {
-      req.body = newTodo;
+        req.body = newTodo;
+    });
+
+    it("should have a createTodo function", () => {
+        expect(typeof TodoController.createTodo).toBe("function");
     });
 });
