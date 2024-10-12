@@ -35,4 +35,10 @@ describe("TodoController.createTodo", () => {
         expect(res.statusCode).toBe(201);
         expect(res._isEndCalled()).toBeTruthy();
     });
+
+    it("should return json body in response", async () => {
+        TodoModel.create.mockReturnValue(newTodo);
+        await TodoController.createTodo(req, res, next);
+        expect(res._getJSONData()).toStrictEqual(newTodo);
+    });
 });
