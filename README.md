@@ -7,3 +7,5 @@ Um simples projeto utilizando node express e jest
 * node
 * jest
 * express
+* mongodb
+* monngose
