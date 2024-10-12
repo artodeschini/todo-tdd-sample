@@ -2,9 +2,9 @@
   "name": "todo-tdd",
   "version": "1.0.0",
   "description": "A simples exemple to use tdd with jest and nodejs",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "test": "jest --watchAll"
   },
   "keywords": [
