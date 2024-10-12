@@ -52,7 +52,13 @@ describe("TodoController.createTodo", () => {
 
     describe("TodoController.getTodos", () => {
         it("should have a getTodos function", () => {
-          expect(typeof TodoController.getTodos).toBe("function");
+            expect(typeof TodoController.getTodos).toBe("function");
+        });
+        it("should call TodoModel.find({})", async () => {
+            await TodoController.getTodos(req, res, next);
+            expect(TodoModel.find).toHaveBeenCalledWith({});
         });
     });
+
+
 });
