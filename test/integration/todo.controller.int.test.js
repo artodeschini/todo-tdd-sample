@@ -15,5 +15,15 @@ describe(endpointUrl, () => {
     expect(response.body.done).toBe(newTodo.done);
     newTodoId = response.body._id;
   });
+
+  test("GET All " + endpointUrl, async () => {
+    const response = await request(app).get(endpointUrl);
+
+    expect(response.statusCode).toBe(200);
+    expect(Array.isArray(response.body)).toBeTruthy();
+    expect(response.body[0].title).toBeDefined();
+    expect(response.body[0].done).toBeDefined();
+    firstTodo = response.body[0];
+  });
   
 });
