@@ -54,10 +54,20 @@ describe("TodoController.createTodo", () => {
         it("should have a getTodos function", () => {
             expect(typeof TodoController.getTodos).toBe("function");
         });
+
         it("should call TodoModel.find({})", async () => {
             await TodoController.getTodos(req, res, next);
             expect(TodoModel.find).toHaveBeenCalledWith({});
         });
+
+        it("should return response with status 200 and all todos", async () => {
+            TodoModel.find.mockReturnValue(allTodos); //mock response
+            await TodoController.getTodos(req, res, next);
+            expect(res.statusCode).toBe(200);
+            expect(res._isEndCalled()).toBeTruthy();
+            expect(res._getJSONData()).toStrictEqual(allTodos);
+        });
+
     });
 
 
