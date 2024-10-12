@@ -4,6 +4,7 @@
   "description": "A simples exemple to use tdd with jest and nodejs",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "jest --watchAll"
   },
   "keywords": [
