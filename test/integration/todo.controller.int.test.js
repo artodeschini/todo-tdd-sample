@@ -5,9 +5,10 @@ const newTodo = require("../mock-data/new-todo.json");
 const endpointUrl = "/todos/";
 
 let firstTodo, newTodoId;
+const nonExistingTodoId = "5d5fff416bef3c07ecf11f77";
 
 describe(endpointUrl, () => {
- 
+
   it("POST " + endpointUrl, async () => {
     const response = await request(app)
       .post(endpointUrl)
@@ -17,6 +18,18 @@ describe(endpointUrl, () => {
     expect(response.body.done).toBe(newTodo.done);
     newTodoId = response.body._id;
   });
+
+  it("should return error 500 on malformed data with POST" + endpointUrl,
+    async () => {
+      const response = await request(app)
+        .post(endpointUrl)
+        .send({ title: "Missing done property" });
+      expect(response.statusCode).toBe(500);
+      expect(response.body).toStrictEqual({
+        message: "Todo validation failed: done: Path `done` is required."
+      });
+    }
+  );
 
   it("GET All " + endpointUrl, async () => {
     const response = await request(app).get(endpointUrl);
@@ -33,6 +46,11 @@ describe(endpointUrl, () => {
     expect(response.statusCode).toBe(200);
     expect(response.body.title).toBe(firstTodo.title);
     expect(response.body.done).toBe(firstTodo.done);
+  });
+
+  it("GET todoby id doesn't exist" + endpointUrl + ":id", async () => {
+    const response = await request(app).get(endpointUrl + nonExistingTodoId);
+    expect(response.statusCode).toBe(404);
   });
 
 });
