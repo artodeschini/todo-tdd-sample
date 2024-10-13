@@ -16,7 +16,7 @@ describe(endpointUrl, () => {
     newTodoId = response.body._id;
   });
 
-  test("GET All " + endpointUrl, async () => {
+  it("GET All " + endpointUrl, async () => {
     const response = await request(app).get(endpointUrl);
 
     expect(response.statusCode).toBe(200);

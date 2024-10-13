@@ -78,5 +78,10 @@ describe("TodoController.createTodo", () => {
 
     });
 
+    describe("TodoController.getTodoById", () => {
+        it("should have a getTodoById", () => {
+          expect(typeof TodoController.getTodoById).toBe("function");
+        });
+    });
 
 });
