@@ -155,4 +155,12 @@ describe("TodoController.createTodo", () => {
         expect(TodoModel.findByIdAndDelete).toBeCalledWith(todoId);
     });
 
+    it("should return 200 OK and deleted todomodel", async () => {
+        TodoModel.findByIdAndDelete.mockReturnValue(newTodo);
+        await TodoController.deleteTodo(req, res, next);
+        expect(res.statusCode).toBe(200);
+        expect(res._getJSONData()).toStrictEqual(newTodo);
+        expect(res._isEndCalled()).toBeTruthy();
+    });
+
 });
