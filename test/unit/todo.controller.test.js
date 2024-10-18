@@ -107,4 +107,10 @@ describe("TodoController.createTodo", () => {
         });
 
     });
+
+    describe("TodoController.updateTodo", () => {
+        it("should have a updateTodo function", () => {
+          expect(typeof TodoController.updateTodo).toBe("function");
+        });
+    });
 });
