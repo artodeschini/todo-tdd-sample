@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "create new TODO",
+			"name": "create new Todo",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -28,6 +28,72 @@
 					"port": "8080",
 					"path": [
 						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"update test\",\n    \"done\": true,\n    \"_id\": \"6709e62e37c168a524539b6b\",\n    \"__v\": 0\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/todos/6709e62e37c168a524539b6b",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todos",
+						"6709e62e37c168a524539b6b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/todos/6709e4c84d7d8fa3972e273b",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todos",
+						"6709e4c84d7d8fa3972e273b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by id Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/todos/6711bb9ca054c2b8ba07b656",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todos",
+						"6711bb9ca054c2b8ba07b656"
 					]
 				}
 			},
