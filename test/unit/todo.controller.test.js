@@ -143,4 +143,10 @@ describe("TodoController.createTodo", () => {
         expect(next).toHaveBeenCalledWith(errorMessage);
     });
 
+    describe("TodoController.deleteTodo", () => {
+        it("should have a deleteTodo function", () => {
+          expect(typeof TodoController.deleteTodo).toBe("function");
+        });
+    });
+
 });
