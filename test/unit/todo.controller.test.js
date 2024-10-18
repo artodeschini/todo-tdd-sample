@@ -145,8 +145,14 @@ describe("TodoController.createTodo", () => {
 
     describe("TodoController.deleteTodo", () => {
         it("should have a deleteTodo function", () => {
-          expect(typeof TodoController.deleteTodo).toBe("function");
+            expect(typeof TodoController.deleteTodo).toBe("function");
         });
+    });
+
+    it("should call findByIdAndDelete", async () => {
+        req.params.id = todoId;
+        await TodoController.deleteTodo(req, res, next);
+        expect(TodoModel.findByIdAndDelete).toBeCalledWith(todoId);
     });
 
 });

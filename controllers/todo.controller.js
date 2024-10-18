@@ -50,4 +50,5 @@ exports.updateTodo = async (req, res, next) => {
 };
 
 exports.deleteTodo = async (req, res, next) => {
+    TodoModel.findByIdAndDelete(req.params.id);
 }
