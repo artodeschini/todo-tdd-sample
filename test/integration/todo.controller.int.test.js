@@ -6,6 +6,7 @@ const endpointUrl = "/todos/";
 
 let firstTodo, newTodoId;
 const nonExistingTodoId = "5d5fff416bef3c07ecf11f77";
+const testData = { title: "Make integration test for PUT", done: true };
 
 describe(endpointUrl, () => {
 
@@ -51,6 +52,15 @@ describe(endpointUrl, () => {
   it("GET todoby id doesn't exist" + endpointUrl + ":id", async () => {
     const response = await request(app).get(endpointUrl + nonExistingTodoId);
     expect(response.statusCode).toBe(404);
+  });
+
+  it("PUT " + endpointUrl, async () => {
+    const res = await request(app)
+      .put(endpointUrl + newTodoId)
+      .send(testData);
+    expect(res.statusCode).toBe(200);
+    expect(res.body.title).toBe(testData.title);
+    expect(res.body.done).toBe(testData.done);
   });
 
 });
