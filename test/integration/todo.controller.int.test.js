@@ -63,4 +63,11 @@ describe(endpointUrl, () => {
     expect(res.body.done).toBe(testData.done);
   });
 
+  it("should return 404 on PUT " + endpointUrl, async () => {
+    const res = await request(app)
+      .put(endpointUrl + nonExistingTodoId)
+      .send(testData);
+    expect(res.statusCode).toBe(404);
+  });
+
 });
